@@ -610,6 +610,7 @@ public class DocumentsActivity extends BaseActivity implements MenuItem.OnMenuIt
             mState.showFolderSize = SettingsActivity.getDisplayFolderSize(this);
             mState.showThumbnail = SettingsActivity.getDisplayFileThumbnail(this);
             mState.showHiddenFiles = SettingsActivity.getDisplayFileHidden(this);
+            mState.showSummary = SettingsActivity.getDisplaySummary(this);
             invalidateMenu();
         }
         initProtection();
