@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2013 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,53 +16,53 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/item_doc_list_background"
     android:focusable="true"
-    android:foreground="?selectableItemBackground"
-    android:background="@drawable/item_doc_list_background">
+    android:foreground="?selectableItemBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/list_item_height"
-        android:paddingLeft="@dimen/list_item_padding"
-        android:paddingRight="@dimen/list_item_padding"
-        android:paddingStart="@dimen/list_item_padding"
-        android:paddingEnd="@dimen/list_item_padding"
+        android:baselineAligned="false"
         android:gravity="center_vertical"
+        android:minHeight="@dimen/list_item_height"
         android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:paddingStart="@dimen/list_item_padding"
+        android:paddingLeft="@dimen/list_item_padding"
+        android:paddingEnd="@dimen/list_item_padding"
+        android:paddingRight="@dimen/list_item_padding">
 
         <FrameLayout
             android:id="@android:id/icon"
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp">
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp">
 
             <dev.dworks.apps.anexplorer.ui.CircleImage
                 android:id="@+id/icon_mime_background"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/icon_mime"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:scaleType="centerInside"
+                android:layout_gravity="center"
                 android:contentDescription="@null"
                 android:padding="5dp"
-                android:layout_gravity="center" />
+                android:scaleType="centerInside" />
 
             <ImageView
                 android:id="@+id/icon_thumb"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
+                android:contentDescription="@null"
                 android:cropToPadding="true"
-                android:contentDescription="@null" />
+                android:scaleType="centerCrop" />
 
         </FrameLayout>
 
@@ -76,17 +75,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:baselineAligned="false">
+                android:baselineAligned="false"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@android:id/title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:singleLine="true"
-                    android:ellipsize="middle"
                     android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
                     android:textAlignment="viewStart"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                     android:textColor="?android:attr/textColorPrimary" />
@@ -95,10 +94,10 @@
                     android:id="@android:id/icon1"
                     android:layout_width="@dimen/root_icon_size"
                     android:layout_height="@dimen/root_icon_size"
-                    android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
-                    android:scaleType="centerInside"
-                    android:contentDescription="@null" />
+                    android:layout_marginLeft="8dp"
+                    android:contentDescription="@null"
+                    android:scaleType="centerInside" />
 
             </LinearLayout>
 
@@ -106,19 +105,19 @@
                 android:id="@+id/line2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:layout_marginRight="10dp"
                 android:layout_marginEnd="10dp"
-                android:baselineAligned="false">
+                android:layout_marginRight="10dp"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/date"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:ellipsize="end"
                     android:layout_gravity="start"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:textAlignment="viewStart"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textColor="?android:attr/textColorSecondary" />
@@ -127,11 +126,11 @@
                     android:id="@+id/size"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:singleLine="true"
-                    android:ellipsize="end"
                     android:layout_gravity="start"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:textAlignment="viewStart"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textColor="?android:attr/textColorSecondary" />
@@ -140,12 +139,12 @@
                     android:id="@android:id/summary"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:singleLine="true"
-                    android:ellipsize="end"
                     android:layout_gravity="start"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:textAlignment="viewStart"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textColor="?android:attr/textColorSecondary" />
@@ -154,18 +153,17 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/button_popup"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_gravity="end"
+            android:clickable="true"
+            android:contentDescription="@string/abc_action_menu_overflow_description"
+            android:drawableBottom="@drawable/ic_menu_moreoverflow_dark" />
+
+
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/button_popup"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:layout_gravity="end"
-        android:drawableBottom="@drawable/ic_menu_moreoverflow_dark"
-        android:paddingRight="10dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="10dp"
-        android:contentDescription="@string/abc_action_menu_overflow_description"/>
 
 </FrameLayout>
