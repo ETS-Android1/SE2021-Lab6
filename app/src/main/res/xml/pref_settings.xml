@@ -71,6 +71,12 @@
             <SwitchPreference
                 android:defaultValue="true"
                 android:icon="@drawable/dummy_icon"
+                android:key="summary"
+                android:persistent="true"
+                android:title="Display summary" />
+            <SwitchPreference
+                android:defaultValue="true"
+                android:icon="@drawable/dummy_icon"
                 android:key="fileThumbnail"
                 android:persistent="true"
                 android:title="@string/pref_thumbnail" />
