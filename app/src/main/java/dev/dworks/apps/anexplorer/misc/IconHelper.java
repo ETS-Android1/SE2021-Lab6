@@ -128,8 +128,17 @@ public class IconHelper {
             ImageView iconThumb,
             ImageView iconMime,
             @Nullable View subIconMime) {
-        load(doc.derivedUri, doc.path, doc.mimeType, doc.flags, doc.icon, doc.lastModified,
-                iconThumb, iconMime, subIconMime);
+        if (!doc.isDirectory() || doc.summary == null || !doc.summary.equals("empty")) {
+            load(doc.derivedUri, doc.path, doc.mimeType, doc.flags, doc.icon, doc.lastModified,
+                    iconThumb, iconMime, subIconMime);
+        } else {
+            // Add a mime icon if the thumbnail is not shown.
+            setMimeIcon(iconMime, mContext.getDrawable(R.drawable.empty_folder));
+            setMimeBackground(subIconMime, getDocumentColor(mContext, doc.authority, doc.documentId, doc.mimeType));
+            hideImageView(iconThumb);
+            iconThumb.setAlpha(0f);
+            subIconMime.setVisibility(View.VISIBLE);
+        }
     }
 
     public void load(
@@ -154,7 +163,7 @@ public class IconHelper {
      * @return
      */
     public void load(Uri uri, String docPath, String mimeType, int docFlags, int docIcon, long docLastModified,
-            ImageView iconThumb, ImageView iconMime, @Nullable View subIconMime) {
+                     ImageView iconThumb, ImageView iconMime, @Nullable View subIconMime) {
         boolean loadedThumbnail = false;
 
         final String docAuthority = uri.getAuthority();
@@ -165,8 +174,8 @@ public class IconHelper {
         final boolean showThumbnail = supportsThumbnail && allowThumbnail && mThumbnailsEnabled;
         if (showThumbnail) {
             loadedThumbnail =
-                loadThumbnail(uri, docAuthority, docLastModified, docPath,
-                        mimeType, iconThumb, iconMime, subIconMime);
+                    loadThumbnail(uri, docAuthority, docLastModified, docPath,
+                            mimeType, iconThumb, iconMime, subIconMime);
         }
 
         final String docId = DocumentsContract.getDocumentId(uri);
@@ -222,7 +231,7 @@ public class IconHelper {
                 };
 
                 final ThumbnailLoader task = new ThumbnailLoader(uri, iconThumb,
-                    mCurrentSize, docLastModified, docPath, mimeType,
+                        mCurrentSize, docLastModified, docPath, mimeType,
                         callback, true);
 
                 ProviderExecutor.forAuthority(docAuthority).execute(task);
@@ -292,7 +301,7 @@ public class IconHelper {
     }
 
     private Drawable getDocumentIcon(
-        Context context, String authority, String id, String mimeType, int icon) {
+            Context context, String authority, String id, String mimeType, int icon) {
         if (icon != 0) {
             return IconUtils.loadPackageIcon(context, authority, icon);
         } else {
