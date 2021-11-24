@@ -163,6 +163,7 @@ public class StandaloneActivity extends BaseActivity {
         mState.showAdvanced = mState.forceAdvanced
                 | SettingsActivity.getDisplayAdvancedDevices(this);
         mState.showSize = true;
+        mState.showSummary = SettingsActivity.getDisplaySummary(this);
     }
     private class RestoreRootTask extends AsyncTask<Void, Void, RootInfo> {
         private Uri mRootUri;

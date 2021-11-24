@@ -51,6 +51,7 @@ public class SettingsActivity extends SettingsCommonActivity {
     public static final String KEY_ADVANCED_DEVICES = "advancedDevices";
     public static final String KEY_FILE_SIZE = "fileSize";
     public static final String KEY_FOLDER_SIZE = "folderSize";
+    public static final String KEY_SUMMARY = "summary";
     public static final String KEY_FILE_THUMBNAIL = "fileThumbnail";
     public static final String KEY_FILE_HIDDEN = "fileHidden";
     public static final String KEY_SECURITY_ENABLED = "security_enable";
@@ -81,7 +82,12 @@ public class SettingsActivity extends SettingsCommonActivity {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(KEY_FOLDER_SIZE, false);
     }
-    
+
+    public static boolean getDisplaySummary(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(KEY_SUMMARY, true);
+    }
+
     public static boolean getDisplayFileThumbnail(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(KEY_FILE_THUMBNAIL, true);

@@ -132,6 +132,10 @@ public class ListDocumentHolder extends DocumentHolder {
                 }
             }
         }
+        if (!state.showSummary) {
+            summary.setText(null);
+            summary.setVisibility(View.GONE);
+        }
 
         if (icon1 != null)
             icon1.setVisibility(View.GONE);

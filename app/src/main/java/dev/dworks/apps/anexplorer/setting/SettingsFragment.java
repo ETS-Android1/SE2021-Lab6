@@ -37,6 +37,7 @@ import static dev.dworks.apps.anexplorer.setting.SettingsActivity.KEY_PRIMARY_CO
 import static dev.dworks.apps.anexplorer.setting.SettingsActivity.KEY_RECENT_MEDIA;
 import static dev.dworks.apps.anexplorer.setting.SettingsActivity.KEY_ROOT_MODE;
 import static dev.dworks.apps.anexplorer.setting.SettingsActivity.KEY_SECURITY_ENABLED;
+import static dev.dworks.apps.anexplorer.setting.SettingsActivity.KEY_SUMMARY;
 import static dev.dworks.apps.anexplorer.setting.SettingsActivity.KEY_THEME_STYLE;
 
 public class SettingsFragment extends PreferenceFragment
@@ -56,6 +57,7 @@ public class SettingsFragment extends PreferenceFragment
 		//General
 		findPreference(KEY_FILE_SIZE).setOnPreferenceClickListener(this);
 		findPreference(KEY_FOLDER_SIZE).setOnPreferenceClickListener(this);
+		findPreference(KEY_SUMMARY).setOnPreferenceClickListener(this);
 		findPreference(KEY_FILE_THUMBNAIL).setOnPreferenceClickListener(this);
 		findPreference(KEY_FILE_HIDDEN).setOnPreferenceClickListener(this);
 		findPreference(KEY_RECENT_MEDIA).setOnPreferenceClickListener(this);

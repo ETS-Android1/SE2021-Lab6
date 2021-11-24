@@ -111,6 +111,7 @@ public abstract class BaseActivity extends ActionBarActivity {
         public boolean allowMultiple = false;
         public boolean showSize = false;
         public boolean showFolderSize = false;
+        public boolean showSummary = false;
         public boolean showThumbnail = false;
         public boolean showHiddenFiles = false;
         public boolean localOnly = false;
@@ -161,6 +162,7 @@ public abstract class BaseActivity extends ActionBarActivity {
             out.writeInt(allowMultiple ? 1 : 0);
             out.writeInt(showSize ? 1 : 0);
             out.writeInt(showFolderSize ? 1 : 0);
+            out.writeInt(showSummary ? 1 : 0);
             out.writeInt(showThumbnail ? 1 : 0);
             out.writeInt(showHiddenFiles ? 1 : 0);
             out.writeInt(localOnly ? 1 : 0);
@@ -191,6 +193,7 @@ public abstract class BaseActivity extends ActionBarActivity {
                 state.allowMultiple = in.readInt() != 0;
                 state.showSize = in.readInt() != 0;
                 state.showFolderSize = in.readInt() != 0;
+                state.showSummary = in.readInt() != 0;
                 state.showThumbnail = in.readInt() != 0;
                 state.showHiddenFiles = in.readInt() != 0;
                 state.localOnly = in.readInt() != 0;
